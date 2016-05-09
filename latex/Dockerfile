@@ -55,6 +55,7 @@ RUN     apt-get update \
 
 ENV NAME=
 ENV USER="builder"
+ENV DEBUG="0"
 
 # Add scripts & configs
 COPY    build.sh /

@@ -7,3 +7,8 @@ echo "INFO latexmk returned $?"
 
 cd "/"
 find "/build" -type f -name "*.pdf" -exec cp -v "{}" "/result/" \;
+
+if [ "$DEBUG" = "1" ]; then
+	cd "/build"
+	exec /bin/bash
+fi
