@@ -53,4 +53,19 @@ RUN     apt-get update \
                 make \
      && rm -rf /var/lib/apt/lists/*
 
-CMD ["/bin/bash"]
+ENV NAME=
+ENV USER="builder"
+
+# Add scripts & configs
+COPY    build.sh /
+
+# Allow access for all users
+RUN     chmod a+rx /build.sh \
+     && mkdir /source \
+     && chmod a+rwx /source \
+     && mkdir /build \
+     && chmod a+rwx /build \
+     && mkdir /result \
+     && chmod a+rwx /result
+
+CMD ["/build.sh"]
