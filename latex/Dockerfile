@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -32,8 +32,6 @@ RUN     apt-get update \
                 texlive-pstricks-doc \
                 texlive-publishers-doc \
                 texlive-science-doc \
-                texlive-doc-de \
-                texlive-doc-en \
                 texlive-fonts-extra \
                 texlive-formats-extra \
                 texlive-full \
@@ -51,10 +49,13 @@ RUN     apt-get update \
                 texlive-xetex \
                 latexmk \
                 make \
+                umlet \
      && rm -rf /var/lib/apt/lists/*
 
 ENV NAME=
 ENV USER="builder"
+ENV UID=1000
+ENV GID=1000
 ENV DEBUG="0"
 
 # Add scripts & configs
