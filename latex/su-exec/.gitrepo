@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/ncopa/su-exec.git
+	branch = master
+	commit = f85e5bde1afef399021fbc2a99c837cf851ceafa
+	parent = 157b1812dc88f44d240991f2fdcd1c84536ba7fd
+	cmdver = 0.3.0
