@@ -65,7 +65,7 @@ RUN     apt-get update \
      && make \
      && install -m 0755 su-exec /usr/bin/ \
      && cd / \
-     && apt-get purge -y gcc \
+     && apt-get purge -y --auto-remove gcc \
      && rm -rf /var/lib/apt/lists/* \
      && rm -r /tmp/compile-su-exec
 
