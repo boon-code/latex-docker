@@ -48,6 +48,11 @@ _loop_main() {
 	local changed=""
 	local ret=0
 
+	_info "Initial build ..."
+	_create_images
+	_update_latex
+	_copy_result
+
 	trap _cancel_loop 2
 	while true; do
 		local updateTex=0
