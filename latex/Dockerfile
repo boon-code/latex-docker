@@ -52,6 +52,18 @@ RUN     apt-get update \
                 umlet \
      && rm -rf /var/lib/apt/lists/*
 
+# Prepare, compile and install su-exec
+COPY su-exec/su-exec.c su-exec/Makefile /tmp/compile-su-exec/
+RUN     apt-get update \
+     && apt-get install -y gcc \
+     && cd /tmp/compile-su-exec \
+     && make \
+     && install -m 0755 su-exec /usr/bin/ \
+     && cd / \
+     && apt-get purge -y gcc \
+     && rm -rf /var/lib/apt/lists/* \
+     && rm -r /tmp/compile-su-exec
+
 ENV NAME=
 ENV USER="builder"
 ENV UID=1000
@@ -65,6 +77,8 @@ COPY    build.sh /
 RUN     chmod a+rx /build.sh \
      && mkdir /source \
      && chmod a+rwx /source \
+     && mkdir /images \
+     && chmod a+rwx /images \
      && mkdir /build \
      && chmod a+rwx /build \
      && mkdir /result \
