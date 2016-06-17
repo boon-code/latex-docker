@@ -74,6 +74,7 @@ ENV USER="builder"
 ENV UID=1000
 ENV GID=1000
 ENV DEBUG="0"
+ENV LOOP="0"
 
 # Add scripts & configs
 COPY    build.sh /
