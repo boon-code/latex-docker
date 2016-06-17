@@ -52,6 +52,11 @@ RUN     apt-get update \
                 umlet \
      && rm -rf /var/lib/apt/lists/*
 
+# Install inotify-tools for inotifywait
+RUN     apt-get update \
+     && apt-get install -y inotify-tools \
+     && rm -rf /var/lib/apt/lists/*
+
 # Prepare, compile and install su-exec
 COPY su-exec/su-exec.c su-exec/Makefile /tmp/compile-su-exec/
 RUN     apt-get update \
