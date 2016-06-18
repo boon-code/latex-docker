@@ -1,3 +1,4 @@
+V ?= latest
 
 .PHONY:
 all: info
@@ -8,4 +9,4 @@ info:
 
 .PHONY:
 build:
-	cd latex; docker build -t mhb/latex:latest .
+	cd latex; docker build -t mhb/latex:$(V) .
