@@ -50,11 +50,7 @@ RUN     apt-get update \
                 latexmk \
                 make \
                 umlet \
-     && rm -rf /var/lib/apt/lists/*
-
-# Install inotify-tools for inotifywait
-RUN     apt-get update \
-     && apt-get install -y inotify-tools \
+                inotify-tools \
      && rm -rf /var/lib/apt/lists/*
 
 # Prepare, compile and install su-exec
