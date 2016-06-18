@@ -60,14 +60,14 @@ _loop_main() {
 
 
 		# Create list of watched files
-		find "/source" -type f \( -name "*.tex" -o -name "*.uxf" \) > "$wlist"
+		find "/source" -type f \( -name "*.tex" -o -name "*.uxf" -o -name "*.bib" \) > "$wlist"
 
 		changed="$(inotifywait --timeout "$timeout" --format="%w" -e modify --fromfile "$wlist")"
 		ret=$?
 
 		if [ $ret -eq 0 ]; then
 			case "${changed##*.}" in
-			tex)
+			tex|bib)
 				updateTex=1
 				;;
 			uxf)
